@@ -45,6 +45,7 @@ public class LeaderLatchExample {
 			System.out.println("release the leader " + currentLeader.getId());
 			currentLeader.close();
 			examples.get(0).await(2, TimeUnit.SECONDS);
+			examples.remove(currentLeader);
 			System.out.println("Client #0 maybe is elected as the leader or not although it want to be");
 			System.out.println("the new leader is " + examples.get(0).getLeader().getId());
 			
