@@ -11,8 +11,12 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * 可重入锁Shared Reentrant Lock
+ * http://colobu.com/2014/12/12/zookeeper-recipes-by-example-2/
+ */
 public class InterProcessMutexExample {
-    private static final int QTY = 5;
+    private static final int QTY = 3;
     private static final int REPETITIONS = QTY * 10;
     private static final String PATH = "/examples/locks";
 
