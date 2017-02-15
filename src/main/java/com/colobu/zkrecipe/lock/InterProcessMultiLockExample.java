@@ -12,6 +12,13 @@ import org.apache.curator.framework.recipes.locks.InterProcessSemaphoreMutex;
 import org.apache.curator.retry.ExponentialBackoffRetry;
 import org.apache.curator.test.TestingServer;
 
+/**
+ * 多锁对象 Multi Shared Lock
+ * Multi Shared Lock是一个锁的容器。
+ * 当调用acquire， 所有的锁都会被acquire，如果请求失败，所有的锁都会被release。
+ * 同样调用release时所有的锁都被release(失败被忽略)。
+ * 基本上，它就是组锁的代表，在它上面的请求释放操作都会传递给它包含的所有的锁。
+ */
 public class InterProcessMultiLockExample {
 	private static final String PATH1 = "/examples/locks1";
 	private static final String PATH2 = "/examples/locks2";
